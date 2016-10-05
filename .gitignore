@@ -28,4 +28,7 @@ vignettes/*.pdf
 *.knit.md
 # Data directory
 /data/
+<<<<<<< HEAD
 .Rproj.user
+=======
+>>>>>>> 1449338f5a08a503ba95fe23433fa623ffc061b8
