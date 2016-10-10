@@ -3,9 +3,9 @@
 ##################
 # install.packages("tidyverse")
 # install.packages("lubridate")
-# # replace the xxx and remove the comment in the below line to set the working directory to your wd
-#
-# #setwd(xxx)
+# replace the xxx and remove the comment in the below line to set the working directory to your wd
+
+#setwd(xxx)
 #
  require(tidyverse)
  require(lubridate)
@@ -38,9 +38,9 @@ df <- read.table(df_Names, header = TRUE,
                 colClasses = classes
                 )
 df1 <- mutate(df, datetime = dmy_hms(paste(Date, Time)))
-dfp1 <- filter(df3, datetime <= "2007-02-02", datetime >= "2007-02-01")
+dfp1 <- filter(df1, datetime <= "2007-02-02", datetime >= "2007-02-01")
 #
- # plot1.R()
+  plot1.R()
  # plot2.R()
  # plot3.R()
  # plot.R()
