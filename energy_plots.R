@@ -27,15 +27,20 @@ if (!file.exists(temp)) {
 }
 
 df_Names <- unzip(temp, list = FALSE, exdir = "data")
+# Get the column classes to speed up import (from http://www.biostat.jhsph.edu/~rpeng/docs/R-large-tables.html)
+tab5rows <- read.table(df_Names, sep = ";",header = TRUE, nrows = 5)
+classes <- sapply(tab5rows, class)
+# Now back to our import
 df <- read.table(df_Names, header = TRUE,
                 sep = ";",
                 na.strings = "?",
-                nrows = 2000000)
-df2 <- mutate(df, datetime = dmy_hms(paste(Date, Time)))
-df3 <- select(df2, datetime, Global_active_power, Global_intensity)
-df4 <- filter(df3, datetime <= "2007-02-02", datetime >= "2007-02-01")
+                nrows = 2075259,
+                colClasses = classes
+                )
+df1 <- mutate(df, datetime = dmy_hms(paste(Date, Time)))
+dfp1 <- filter(df3, datetime <= "2007-02-02", datetime >= "2007-02-01")
 #
-# plot1.R()
- plot2.R()
- plot3.R()
-# plot.R()
+ # plot1.R()
+ # plot2.R()
+ # plot3.R()
+ # plot.R()
