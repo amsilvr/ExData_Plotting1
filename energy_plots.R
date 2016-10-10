@@ -37,10 +37,24 @@ df <- read.table(df_Names, header = TRUE,
                 nrows = 2075259,
                 colClasses = classes
                 )
-df1 <- mutate(df, datetime = dmy_hms(paste(Date, Time)))
-dfp1 <- filter(df1, datetime <= "2007-02-02", datetime >= "2007-02-01")
+df1 <- mutate(df, Date = as.Date(Date, format = "%d/%m/%Y"),
+                datetime = dmy_hms(paste(df$Date, df$Time)))
+
+dfp1 <- filter(df1, Date <= "2007-02-02", Date >= "2007-02-01")
 #
-  plot1.R()
- # plot2.R()
- # plot3.R()
- # plot.R()
+
+png(filename = "plot1.png")
+    source("plot1.R")
+dev.off()
+
+png(filename = "plot2.png")
+    source("plot2.R")
+dev.off()
+
+png(filename = "plot3.png")
+source("plot3.R")
+dev.off()
+
+png(filename = "plot4.png")
+source("plot4.R")
+dev.off()
